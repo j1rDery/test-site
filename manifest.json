@@ -1,7 +1,7 @@
 {
   "name": "MN Dichoso Web",
   "short_name": "MNDichoso",
-  "start_url": "/",
+  "start_url": "/test-site/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ff5e00",
