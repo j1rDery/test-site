@@ -8,10 +8,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@300;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" />
     
-    <link rel="manifest" href="manifest.json">
+    <!-- <link rel="manifest" href="manifest.json"> -->
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body onload="window.location.hash && window.scrollTo(0, document.querySelector(window.location.hash).offsetTop);">
+
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
     <div class="container position-relative">
@@ -37,15 +38,15 @@
              <ul class="navbar-nav ms-auto gap-lg-4 fw-semibold small text-uppercase py-3">
                 <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="#service">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#services" >Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
                 <li class="nav-item"><a class="nav-link" href="#testi">Testimonials</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact Us</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="#quote">Get a Quote</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="smartScroll(); return false;">Contact Us</a></li>
+                <li class="nav-item d-lg-none"><a class="nav-link" href="javascript:void(0)" onclick="scrollToBottom()">Get a Quote</a></li>
                 
             </ul>
             <div class="ms-lg-4 d-none d-lg-block">
-                <a href="#contact"><button class="btn btn-orange shadow-sm small">Get a Quote</button></a>
+                <a href="javascript:void(0)" onclick="scrollToBottom()"><button class="btn btn-orange shadow-sm small">Get a Quote</button></a>
                 
             </div>
         </div>
@@ -55,11 +56,11 @@
 </nav>
 
 <!-- HERO SECTION  -------------------->
-    <main class="container mb-5 bg-white shadow-sm">
+    <main id="page" class="container mb-5 bg-white shadow-sm">
 
         <section class="hero-section px-4 px-md-5 shadow">
             <div class="col-lg-7">
-<div id="about" ></div> 
+
                 <h1 class="display-4 fw-bold mb-3">Professional Land Surveying Services</h1>
                 <p class="lead mb-4 opacity-75">Licensed Geodetic Engineer Offering Accurate and Land Surveyor Solutions.</p>
              
@@ -101,9 +102,8 @@
         </section>
 
 <!-- ABOUT US  -------------------->
- 
-        <section id="service" class="px-4 py-2 mt-5">
-            <div class="text-left mb-5">
+        <section id="about">
+            <div class="text-left mb-5 px-4 py-2 mt-5">
                 <h1 class="px-2 fs-1 fw-bolder" style="color: #e4541b;">Your Land, Our Expertise</h1>
                 <h4 class="px-3 fs-5 py-3" style="color: #552513;">
                 <p class="justify-text">
@@ -112,9 +112,12 @@
                    the mining industry, the company brings expert knowledge and a passion for serving the local community. 
                    We provide precise, reliable, and professional surveying services, ensuring your land is handled with 
                    the care and accuracy it deserves.
-                </p></h4> 
+                </p></h4>
+            </div>
+        </section>
 <!-- SERVICES  -------------------->
- <h3 class="fw-bold mb-4 px-2 pt-3" style="color: #d34d17;">Solutions That Map Your Land Accurately</h3>
+        <section id="services" class="px-4 pb-5">
+            <h3 class="fw-bold mb-4" style="color: #d34d17;">Solutions That Map Your Land Accurately</h3>
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card h-100 border-light shadow-sm p-2">
@@ -143,7 +146,7 @@
 
                 <div class="col-md-4">
                     <div class="card h-100 border-light shadow-sm p-2">
-                      <div  id="gallery" class="card-img-container position-relative">
+                      <div class="card-img-container position-relative">
                         <img src="images/consSurvey.jpg" class="card-img-top rounded" alt="Construction" height="300" style="object-fit: cover;">
                       </div>
                         <div class="card-body">
@@ -156,10 +159,9 @@
             </div>
         </section>
 <!-- GALLERY  -------------------->
-        <section class="px-4 pb-5">
-    <h3 class="fw-bold mb-4" style="color: #d34d17;">Explore Our Work</h3>
-    <div id="testi" ></div>
-    <div id="thumbCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
+    <section id="gallery" class="px-4 pb-5">
+        <h3 class="fw-bold mb-4" style="color: #d34d17;">Explore Our Work</h3>
+        <div id="thumbCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
         <div class="carousel-inner">
             
             <div class="carousel-item active">
@@ -210,12 +212,11 @@
                 </div>
             </div>
         </div>
-    </div>
-</section>
+        </div>
+    </section>
     
 <!-- TESTIMONIALS  -------------------->
- 
-        <section class="px-4 pt-2">
+        <section id="testi" class="px-4 pb-5">
         <h2 class="fw-bold display-6 pt-n4" style="color: #d34d17;">What Our Clients Say</h2>
         <div class="row g-3 py-4">
             <div class="col-md-4">
@@ -273,10 +274,10 @@
 
 </main>
 <!-- FOOTER  -------------------->
- 
+    <section id="footer">
     <footer class="custom-footer">
         <div class="container footer-cta orange-gradient shadow-lg pb-5">
-<div id="quote" ></div>
+
             <div class="row align-items-center p-4 p-md-5">
                 <div class="col-lg-6 text-white mb-5 mb-lg-0" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
                     <h2 class="display-5 fw-bold mb-4 py-4" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Contact Us for a<br>Free Consultation</h2>
@@ -300,10 +301,12 @@
                 </div>
             </div>
         </div>
+<div id="contact"></div>
         <div class="copyright-bar py-3 text-center">
             &copy; 2026 MN Dichoso Land Surveying Services. All Rights Reserved.
         </div>
     </footer>
+    </section>
 
 
 <!-- LOGO MODAL ---------------------->

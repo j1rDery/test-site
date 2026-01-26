@@ -1,6 +1,14 @@
-html {
+        html {
             scroll-behavior: smooth;
+            scroll-padding-top: 20%;
+            scroll-margin-top: 0px;
         }
+        
+        main, section {
+            margin: 0;
+            padding: 0;
+        }
+        
 
         body { 
             font-family: 'Inter', sans-serif; 
@@ -312,6 +320,10 @@ html {
                 border-radius: 0px 0px 0 0;
                 overflow: hidden;
                 
+            }
+             html {
+                scroll-padding-top: 60%;
+                scroll-margin-top: 0px;
             }
             
             
