@@ -1,0 +1,318 @@
+html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #fcfcfc; 
+            margin: 0;
+            padding: 0;
+        }
+        
+        .orange-gradient { 
+            background: linear-gradient(135deg, #242424 0%, #ff5e00 100%); 
+        }
+        .navbar, .navbar > .container {
+            overflow: visible !important;
+        }
+        /* Logo: Flush to top and overlapping */
+        .navbar-brand-wrapper {
+            position: absolute;
+            top: 0;
+            z-index: 1060;
+            filter: drop-shadow(0 5px 3px rgba(0, 0, 0, 0.35));
+        }
+
+        .clip-path-nav { 
+            background: linear-gradient(135deg, #ff7e05 0%, #ff5e00 100%);
+            /* Angle adjusted to 92% for a steeper, smaller slant */
+            clip-path: polygon(0 0, 100% 0, 75% 100%, 0% 100%); 
+            /* Reduced padding: 0.75rem top, 3rem right (for the slant), 1.5rem bottom */
+            padding: 0.65rem 6.5rem 0.65rem 1.5rem !important; 
+            
+        }
+
+        .header-logo-img {
+            height: 60px; /* Adjust this to make the overall orange box smaller or larger */
+            width: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Navbar: No padding-top to let logo touch the edge */
+        .navbar {
+            padding-top: 0 !important;
+            min-height: 80px;
+            background-color: white !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(255, 94, 0, 0.1), rgba(0, 0, 0, 0.6)), url('images/hero.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 550px;
+            display: flex;
+            align-items: center;
+            border-radius: 4px;
+            color: white;
+        }
+        .card-img-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Adjust the colors and transparency (rgba) below */
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 0%, rgba(90, 30, 0, 0.2) 50%);
+            border-radius: var(--bs-border-radius); /* Keeps the corners rounded like the image */
+            pointer-events: none; /* Allows you to still click the image if needed */
+        }
+
+        .btn-orange {
+            background-color: #ff7e05;
+            color: rgb(255, 255, 255);
+            font-weight: bold;
+           
+            border: none;
+            padding: 12px 30px;
+            
+        }
+        .btn-orange:hover {
+            background-color: #c2c2c2; /* A slightly darker orange */
+            color:#3a3a3a
+        }
+
+        .contact-info-bar {
+            background-color: #3a3a3a;
+        }
+
+        /* Footer: Grey and no bottom space */
+        .custom-footer {
+            background-color: #eeeeee;
+            padding-top: 5rem;
+            margin-bottom: 0 !important;
+        }
+
+        .footer-cta {
+            border-radius: 8px 8px 0 0;
+            overflow: hidden;
+            
+        }
+        
+        .copyright-bar {
+            background-color: #e0e0e0;
+            font-size: 12px;
+            color: #777;
+        }
+
+        /* Thumbnail Carousel Styling */
+        .carousel-item .col-md-2 {
+            padding: 10px;
+        }
+        .thumb-img {
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .thumb-img:hover {
+            transform: scale(1.1);
+            border-color: #ff7e05;
+            
+        }
+        /* Style the arrows to be visible outside the images */
+        .carousel-control-prev, .carousel-control-next {
+            width: 5%;
+            filter: invert(100%); /* Makes arrows black so they are visible on your white bg */
+        }
+        /* Slower and smoother carousel transition */
+        #thumbCarousel .carousel-item {
+            transition: transform 1.2s ease-in-out; 
+        }
+
+        /* Optional: Slight zoom effect when the slide is active */
+        .carousel-item.active img {
+            animation: slowZoom 8s infinite alternate;
+        }
+        .header-logo-img {
+            height: 90px;
+            width: 220px;
+            max-width: 220px;
+            object-fit: contain;
+        }
+        .navbar-toggler {
+            border: 2px solid #ff6600; /* border color */
+            border-radius: 8px;         /* rounded corners */
+            padding: 0.35rem 0.75rem;  /* size */
+        }
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.5); /* orange glow */
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Cpath stroke='%23ff6600' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        /* Ensure images fit nicely within their boxes */
+        .thumb-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover; /* This is the "magic" property that prevents squishing */
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        /* Custom styling for the pop-up carousel buttons */
+        .custom-control {
+            background-color: rgba(228, 84, 27, 0.8) !important; /* Orange to match your theme */
+            border-radius: 50%;
+            padding: 15px;
+            background-size: 50%;
+        }
+
+        /* Ensure images in the modal maintain quality */
+        #popupCarousel img {
+            max-height: 80vh; /* Prevents image from being taller than the screen */
+            object-fit: contain;
+            /* background-color: #ffefd2; /* Adds black bars if image ratio is different */
+        }
+        .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 15px !important;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 1rem 3rem rgba(0,0,0,0.1) !important;
+        }
+
+        .italic {
+            font-weight: bold;
+            font-style: italic;
+            color: #555;
+            font-size: mdeium;
+        }
+        .fs-4-5 {
+            font-size: 1.375rem;
+        }
+        
+        /* Remove the default arrow image and add a white background */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-image: none; /* remove default icon image */
+            background-color: white; /* white background */
+            width: 30px;   /* adjust size */
+            height: 30px;  /* adjust size */
+            border-radius: 10%; /* make it round */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ccc; /* optional border */
+        }
+
+        /* Add your own arrow using CSS */
+        .carousel-control-prev-icon::after,
+        .carousel-control-next-icon::after {
+            content: '';
+            display: block;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid black;
+            border-right: 2px solid black;
+        }
+
+        /* Rotate the arrows */
+        .carousel-control-prev-icon::after {
+            transform: rotate(-135deg);
+        }
+
+        .carousel-control-next-icon::after {
+            transform: rotate(45deg);
+        }
+
+
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.03); }
+        }
+        @media (max-width: 768px) {
+            /* Show 2 images instead of 3 on mobile for better visibility */
+            #thumbCarousel .col-4 {
+                flex: 0 0 auto;
+                width: 50%; 
+            }
+            .header-logo-img {
+                height: 60px;
+                max-width: 160px;
+            }
+
+            /* Adjust thumbnail height for mobile so they don't look stretched */
+            .thumb-img {
+                height: 120px;
+            }
+
+            /* Prevent the hover zoom from breaking the layout on touch screens */
+            .thumb-img:hover {
+                transform: scale(1.05); 
+            }
+        }
+        
+        @media (max-width: 576px) {
+            #thumbCarousel .carousel-control-prev, 
+            #thumbCarousel .carousel-control-next {
+                display: none;
+            }
+             .header-logo-img {
+                height: 48px;
+                max-width: 130px;
+            }
+            /* Make navbar height smaller on mobile */
+            .navbar {
+                min-height: 64px;
+                padding: 0.5rem 0;
+            }
+
+            /* Keep logo from overlapping content */
+            .navbar-brand-wrapper {
+                position: absolute;
+                top: 0;
+            }
+
+            /* Reduce orange clip size */
+            .clip-path-nav {
+                padding: 0.4rem 3.5rem 0.4rem 1rem !important;
+            }
+
+            /* Fix collapsed menu spacing */
+            .navbar-collapse {
+                background-color: #fff;
+                padding-bottom: 1rem;
+            }
+            .header-logo-img {
+            height: 90px;
+            
+            
+            }
+            .clip-path-nav { 
+            
+            /* Angle adjusted to 92% for a steeper, smaller slant */
+            clip-path: polygon(0 0, 100% 0, 70% 100%, 0% 100%); 
+            /* Reduced padding: 0.75rem top, 3rem right (for the slant), 1.5rem bottom */
+            padding: 0.1rem 5rem 0.15rem 1rem !important;
+
+            
+            }
+            .footer-cta {
+                border-radius: 0px 0px 0 0;
+                overflow: hidden;
+                
+            }
+            
+            
+        }
