@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const footerTop = footer.getBoundingClientRect().top + scrollTop;
 
         // Hide if menu open OR near footer
-        if (navbarCollapse.classList.contains('show') || scrollTop + windowHeight >= footerTop) {
+        if (navbarCollapse.classList.contains('show') && scrollTop + windowHeight >= footerTop) {
             fab.classList.add('hidden');
             return;
         }
