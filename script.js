@@ -41,31 +41,44 @@ function smartScroll() {
   });
 }
 
+
+
+
+
+
+
+/* GET A QUOTE FLOATING BUTTON */
+
 document.addEventListener('DOMContentLoaded', () => {
     const fab = document.getElementById('navFab');
-    const navbarCollapse = document.getElementById('navbarNav'); // Bootstrap collapse element
+    const navbarCollapse = document.getElementById('navbarNav');
+    const footer = document.getElementById('quote'); // detect bottom
     let scrollTimer;
 
-    // SCROLL behavior
     window.addEventListener('scroll', () => {
-        // hide on scroll
+        const scrollTop = window.scrollY || window.pageYOffset;
+        const windowHeight = window.innerHeight;
+        const footerTop = footer.getBoundingClientRect().top + scrollTop; // distance from top
+
+        // Hide if menu open OR near footer
+        if (navbarCollapse.classList.contains('show') || scrollTop + windowHeight >= footerTop) {
+            fab.classList.add('hidden');
+            return;
+        }
+
+        // Hide while scrolling
         fab.classList.add('hidden');
 
-        // show when user stops scrolling, only if menu is closed
+        // Show after stop scrolling (but not near footer)
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(() => {
-            if (!navbarCollapse.classList.contains('show')) {
+            if (!navbarCollapse.classList.contains('show') && scrollTop + windowHeight < footerTop) {
                 fab.classList.remove('hidden');
             }
         }, 180);
     });
 
-    // LISTEN TO BOOTSTRAP COLLAPSE EVENTS
-    navbarCollapse.addEventListener('show.bs.collapse', () => {
-        fab.classList.add('hidden'); // hide while menu is opening/open
-    });
-
-    navbarCollapse.addEventListener('hide.bs.collapse', () => {
-        fab.classList.remove('hidden'); // show again when menu closes
-    });
+    // Bootstrap collapse events
+    navbarCollapse.addEventListener('show.bs.collapse', () => fab.classList.add('hidden'));
+    navbarCollapse.addEventListener('hide.bs.collapse', () => fab.classList.remove('hidden'));
 });
