@@ -188,6 +188,7 @@
         #popupCarousel img {
             max-height: 80vh; /* Prevents image from being taller than the screen */
             object-fit: contain;
+            
             /* background-color: #ffefd2; /* Adds black bars if image ratio is different */
         }
         .testimonial-card {
@@ -242,6 +243,51 @@
 
         .carousel-control-next-icon::after {
             transform: rotate(45deg);
+        }
+
+        .nav-fab {
+            position: fixed;
+
+            /* adjust this based on your navbar height */
+            top: 90px;
+            right: 0;
+
+            background: #fd7d0d;
+            color: #fff;
+            border: none;
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+
+
+            padding: 10px 10px;
+            font-size: 14px;
+            font-weight: bold;
+
+            box-shadow: 0 4px 12px rgba(0,0,0,.25);
+            cursor: pointer;
+
+           box-shadow: 0 4px 12px rgba(0,0,0,.25);
+            z-index: 1049;
+
+            transform: translateX(0);
+            transition: transform .35s ease;
+        }
+
+        /* slide out to right */
+        .nav-fab.hidden {
+            transform: translateX(140%);
+        }
+
+        /* optional: softer feel when menu opens */
+        .nav-fab.menu-open {
+            transform: translateX(80%);
+        }
+
+        /* optional: hide on desktop */
+        @media (min-width: 768px) {
+            .nav-fab {
+                display: none;
+            }
         }
 
 

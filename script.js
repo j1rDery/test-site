@@ -40,3 +40,32 @@ function smartScroll() {
     behavior: 'smooth'
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const fab = document.getElementById('navFab');
+    const navbarCollapse = document.getElementById('navbarNav'); // Bootstrap collapse element
+    let scrollTimer;
+
+    // SCROLL behavior
+    window.addEventListener('scroll', () => {
+        // hide on scroll
+        fab.classList.add('hidden');
+
+        // show when user stops scrolling, only if menu is closed
+        clearTimeout(scrollTimer);
+        scrollTimer = setTimeout(() => {
+            if (!navbarCollapse.classList.contains('show')) {
+                fab.classList.remove('hidden');
+            }
+        }, 180);
+    });
+
+    // LISTEN TO BOOTSTRAP COLLAPSE EVENTS
+    navbarCollapse.addEventListener('show.bs.collapse', () => {
+        fab.classList.add('hidden'); // hide while menu is opening/open
+    });
+
+    navbarCollapse.addEventListener('hide.bs.collapse', () => {
+        fab.classList.remove('hidden'); // show again when menu closes
+    });
+});
