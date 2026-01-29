@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', () => {
         const scrollTop = window.scrollY || window.pageYOffset;
         const windowHeight = window.innerHeight;
-        const footerTop = footer.getBoundingClientRect().top + scrollTop; // distance from top
+        const footerTop = footer.getBoundingClientRect().top + scrollTop;
 
         // Hide if menu open OR near footer
         if (navbarCollapse.classList.contains('show') || scrollTop + windowHeight >= footerTop) {
@@ -66,19 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Hide while scrolling
+        // Slide/fade out while scrolling
         fab.classList.add('hidden');
 
-        // Show after stop scrolling (but not near footer)
+        // Slide/fade in after stop scrolling
         clearTimeout(scrollTimer);
         scrollTimer = setTimeout(() => {
             if (!navbarCollapse.classList.contains('show') && scrollTop + windowHeight < footerTop) {
                 fab.classList.remove('hidden');
             }
-        }, 180);
+        }, 180); // adjust delay as needed
     });
 
     // Bootstrap collapse events
     navbarCollapse.addEventListener('show.bs.collapse', () => fab.classList.add('hidden'));
     navbarCollapse.addEventListener('hide.bs.collapse', () => fab.classList.remove('hidden'));
 });
+
